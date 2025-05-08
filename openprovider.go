@@ -21,8 +21,8 @@ type Client struct {
 	Token string
 
 	// Services used for talking to OpenProvider API endpoints
-	Dns     DNSServiceInterface
-	Domains DomainServiceInterface
+	// Dns DNSServiceInterface
+	// Domains DomainServiceInterface
 }
 
 // The NewClient function creates a new client with the provided username and password
@@ -49,8 +49,7 @@ func CreateClient(username string, password string) (*Client, error) {
 	c.Token = auth(username, password)
 
 	// All services are connected to Client
-	c.Dns = &DNSService{client: c}
-	c.Domains = &DomainService{client: c}
+	// c.Domains = &DomainService{client: c}
 
 	return c, nil
 }
