@@ -1,10 +1,14 @@
-name: Test
+name: terraform-openprovider-releaser
 on: [push]
+
+
 jobs:
   run:
-    name: Test
+  
+    name: terraform-openprovider-releaser
     runs-on:
         - ubuntu-latest
+
     steps:
       - name: Setup
         uses: actions/setup-go@v1
@@ -16,9 +20,5 @@ jobs:
       - name: Install GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
-          version: latest
-
-      - name: GoReleaser
-        run: goreleaser
-        with:
-          args: release --skip=publish --clean --snapshot
+          distribution: goreleaser
+          args: release --clean
