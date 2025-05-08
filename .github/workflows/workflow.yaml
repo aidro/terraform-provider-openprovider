@@ -13,5 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      - name: Run GoReleaser
-        run: goreleaser release --clean  
+      - name: Install GoReleaser
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          version: latest
+
+      - name: GoReleaser
+        run: goreleaser
+        args: release --skip=publish --clean --snapshot
