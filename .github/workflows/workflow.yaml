@@ -1,6 +1,8 @@
 name: terraform-openprovider-releaser
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v0.0.1'
 
