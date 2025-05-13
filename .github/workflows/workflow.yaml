@@ -18,12 +18,15 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Fetch tags
+        run: git fetch --tags
       
       - name: Install GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
           distribution: goreleaser
-          args: release --clean 
+          args: release --clean --snapshot
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
 
